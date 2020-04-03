@@ -4,6 +4,9 @@ The application for CSV file visualization
 # Description
 The current application takes a path of a CSV file as input, tries to find the default python interpreter and asks user to give a path to the python interpreter if it was not found. After the data containing in CSV file is visualized in interactive table.
 
+# Requirements
+You need to have Intellij IDEA, python and pandas to be installed. Also java of version 1.8 and more is required.
+
 # Running
 For running of the application you need:
 
