@@ -1,7 +1,13 @@
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
+/**
+ * The main class of program containing main method.
+ * Tries to find python interpreter automatically, if not found asks user to enter the path to it.
+ */
 public class CSVVisualizer {
     private static File pathToTheCSVFile;
     private static String pythonInterpreterCommand;

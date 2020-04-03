@@ -7,6 +7,11 @@ public class CSVTableInformationContainer {
     private int rows;
     private int cols;
 
+    /**
+     * @param reader string of information in CSV file in the format: [number of rows]
+     *      * \n[number of columns]\n[list of columns]\n[json of data in table]
+     * @throws IOException
+     */
     public CSVTableInformationContainer(BufferedReader reader) throws IOException {
         rows = CSVInformationParser.parseRows(reader);
         cols = CSVInformationParser.parseCols(reader);

@@ -3,14 +3,29 @@ import java.io.IOException;
 
 public class CSVInformationParser {
 
+    /**
+     * @param reader stream received from python script containing number of rows at first line
+     * @return number of rows in table
+     * @throws IOException
+     */
     public static int parseRows(BufferedReader reader) throws IOException {
         return Integer.parseInt(reader.readLine());
     }
 
+    /**
+     * @param reader stream received from python script containing number of cols at first line
+     * @return number of cols in table
+     * @throws IOException
+     */
     public static int parseCols(BufferedReader reader) throws IOException {
         return Integer.parseInt(reader.readLine());
     }
 
+    /**
+     * @param reader stream received from python script containing array of column names at first line
+     * @return array of column names in table
+     * @throws IOException
+     */
     public static String[] parseColumnNames(BufferedReader reader) throws IOException {
         String[] listOfColumns = reader.readLine().split(", ");
         listOfColumns[0] = listOfColumns[0].replaceFirst("\\[", "");
@@ -19,6 +34,15 @@ public class CSVInformationParser {
         return listOfColumns;
     }
 
+
+    /**
+     * @param reader stream received from python script containing table with data at first line in json format
+     * @param cols number of columns
+     * @param rows number of rows
+     * @param columnNames array with names of columns
+     * @return received table in array format
+     * @throws IOException
+     */
     public static String[][] parseTable(BufferedReader reader,
                                         int cols,
                                         int rows,

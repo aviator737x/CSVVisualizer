@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class for visualization of arrays with use of JTable
+ */
 public class CSVTable extends JFrame {
+    private static CSVTable instance = null;
     private JTable tableToVisualizeCSVFile;
-
     private Object[][] tableData = new String[1000][1000];
     private Object[] columnsHeader = new String[1000];
-    private static CSVTable instance = null;
 
 
     private CSVTable(String[][] array, String[] columnsHeader) {
@@ -27,6 +29,10 @@ public class CSVTable extends JFrame {
         instance = this;
     }
 
+    /**
+     * @param array table to visualize
+     * @param columnsHeader array of column names
+     */
     public static void visualizeTable(String[][] array, String[] columnsHeader) {
         if (instance == null) {
             new CSVTable(array, columnsHeader);

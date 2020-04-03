@@ -15,6 +15,11 @@ public class PythonScriptRunner {
         this.pythonInterpreterCommand = pythonInterpreterCommand;
     }
 
+    /**
+     * Runs python script written in pythonScript variable.
+     * @return stream of stdout of python process
+     * @throws IllegalCommandException thrown if IOException caught, i.e. something wrong with script or with interpreter.
+     */
     public BufferedReader runPythonScript() throws IllegalCommandException {
         if (pythonScript == null) {
             return new BufferedReader(new StringReader(""));

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class CSVTableInformationContainerTest {
 
-    CSVTableInformationContainer container = new CSVTableInformationContainer(
+    private CSVTableInformationContainer container = new CSVTableInformationContainer(
             new CSVFileInformationReader(
                     "/Users/user/Desktop/CSVVisualizer/testData/simpleCSV",
                     CSVVisualizer.getPythonInterpreterCommand()).runPythonScript()
