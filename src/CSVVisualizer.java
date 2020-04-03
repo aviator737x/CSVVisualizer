@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class CSVVisualizer {
     private static File pathToTheCSVFile;
@@ -25,6 +26,23 @@ public class CSVVisualizer {
     }
 
     public static void main(String[] args) {
-
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Please, enter the path to the CSV file you want to visualize");
+            pathToTheCSVFile = new File(scanner.nextLine());
+            while (!pathToTheCSVFile.exists()) {
+                System.out.printf(
+                        "File \"%s\" not found... Please, enter again the path to the CSV file you want to visualize"
+                        , pathToTheCSVFile.toString()
+                );
+                pathToTheCSVFile = new File(scanner.nextLine());
+            }
+            while (pythonInterpreterCommand == null) {
+                System.out.println("Python interpreter is not found... Please enter the python interpreter path");
+                String interpreter = scanner.nextLine();
+                if (new File(interpreter).exists()) {
+                    pythonInterpreterCommand = scanner.nextLine();
+                }
+            }
+        }
     }
 }
