@@ -16,7 +16,7 @@ public class PythonScriptRunner {
     }
 
     public BufferedReader runPythonScript() throws IllegalCommandException {
-        if (pythonScript != null) {
+        if (pythonScript == null) {
             return new BufferedReader(new StringReader(""));
         }
 

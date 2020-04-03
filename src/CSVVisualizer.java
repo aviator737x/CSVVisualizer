@@ -47,6 +47,14 @@ public class CSVVisualizer {
             }
         }
 
-
+        try {
+            CSVTableInformationContainer container = new CSVTableInformationContainer(
+                    new CSVFileInformationReader(pathToTheCSVFile.toString(), pythonInterpreterCommand)
+                            .runPythonScript()
+            );
+            CSVTable.visualizeTable(container.getTable(), container.getColumnNames());
+        } catch (IOException | IllegalCommandException e) {
+            e.printStackTrace();
+        }
     }
 }
