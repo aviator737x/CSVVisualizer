@@ -21,3 +21,6 @@ For running of the application you need:
 12. Make `File` -> `Project Structure` -> `Project language level` -> `8 - Lambdas, type annotations etc.` and press apply, ok
 13. In project structure find file CSVVisualizer/src/CSVVisualizer.java, press it by right bottom of mouse and press `run CSVVisualizer.main()`
 14. Application is running
+
+# Tests
+If you want to run tests in previous algorithm instead of step 13 press the highest folder in project structure and choose `Run 'All Tests'`. There also given some csv files in CSVVisualizer/testData, that can be used to try the application.
