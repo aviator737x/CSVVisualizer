@@ -24,7 +24,7 @@ public class CSVFileInformationReaderTest {
 
         try {
             assertNotNull(new CSVFileInformationReader(
-                    "/Users/user/Desktop/CSVVisualizer/testData/data.csv",
+                    "testData/data.csv",
                     CSVVisualizer.getPythonInterpreterCommand()).runPythonScript().readLine()
             );
         } catch (IllegalCommandException | IOException e) {

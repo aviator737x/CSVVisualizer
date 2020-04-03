@@ -5,7 +5,7 @@ public class CSVFileInformationReader extends PythonScriptRunner {
     }
 
     /**
-     * Reading of CSV file information using pandas library
+     * Creates python script for reading of CSV file information using pandas library
      * @param pathToTheCSVFile path to the CSV file given by user
      * @return string of information in CSV file in the format: [number of rows]
      * \n[number of columns]\n[list of columns]\n[json of data in table]

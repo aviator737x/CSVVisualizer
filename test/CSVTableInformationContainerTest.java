@@ -1,15 +1,31 @@
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class CSVTableInformationContainerTest {
 
+    static {
+        if (CSVVisualizer.getPythonInterpreterCommand() == null) {
+            try (Scanner scanner = new Scanner(System.in)) {
+                while (CSVVisualizer.getPythonInterpreterCommand() == null) {
+                    System.out.println("Python interpreter is not found... Please enter the python interpreter path");
+                    String interpreter = scanner.nextLine();
+                    if (new File(interpreter).exists()) {
+                        CSVVisualizer.setPythonInterpreterCommand(scanner.nextLine());
+                    }
+                }
+            }
+        }
+    }
+
     private CSVTableInformationContainer container = new CSVTableInformationContainer(
             new CSVFileInformationReader(
-                    "/Users/user/Desktop/CSVVisualizer/testData/simpleCSV",
+                    "testData/simple.csv",
                     CSVVisualizer.getPythonInterpreterCommand()).runPythonScript()
     );
 
