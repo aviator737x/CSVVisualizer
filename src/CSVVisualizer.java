@@ -57,4 +57,12 @@ public class CSVVisualizer {
             e.printStackTrace();
         }
     }
+
+    public static String getPythonInterpreterCommand() {
+        return pythonInterpreterCommand;
+    }
+
+    public static void setPythonInterpreterCommand(String pythonInterpreterCommand) {
+        CSVVisualizer.pythonInterpreterCommand = pythonInterpreterCommand;
+    }
 }
