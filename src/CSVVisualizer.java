@@ -9,7 +9,7 @@ import java.util.Scanner;
  * Tries to find python interpreter automatically, if not found asks user to enter the path to it.
  */
 public class CSVVisualizer {
-    private static File pathToTheCSVFile;
+    private static String pathToTheCSVFile;
     private static String pythonInterpreterCommand;
 
     static {
@@ -34,13 +34,13 @@ public class CSVVisualizer {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please, enter the path to the CSV file you want to visualize");
-            pathToTheCSVFile = new File(scanner.nextLine());
-            while (!pathToTheCSVFile.exists()) {
+            pathToTheCSVFile = scanner.nextLine();
+            while (!(new File(pathToTheCSVFile).exists())) {
                 System.out.printf(
                         "File \"%s\" not found... Please, enter again the path to the CSV file you want to visualize"
                         , pathToTheCSVFile.toString()
                 );
-                pathToTheCSVFile = new File(scanner.nextLine());
+                pathToTheCSVFile = scanner.nextLine();
             }
             while (pythonInterpreterCommand == null) {
                 System.out.println("Python interpreter is not found... Please enter the python interpreter path");
@@ -53,7 +53,7 @@ public class CSVVisualizer {
 
         try {
             CSVTableInformationContainer container = new CSVTableInformationContainer(
-                    new CSVFileInformationReader(pathToTheCSVFile.toString(), pythonInterpreterCommand)
+                    new CSVFileInformationReader(pathToTheCSVFile, pythonInterpreterCommand)
                             .runPythonScript()
             );
             CSVTable.visualizeTable(container.getTable(), container.getColumnNames());
